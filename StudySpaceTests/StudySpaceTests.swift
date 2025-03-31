@@ -6,9 +6,9 @@
 //
 
 import Testing
-@testable import StudyWatch
+@testable import StudySpace
 
-struct StudyWatchTests {
+struct StudySpaceTests {
 
     @Test func example() async throws {
         // Write your test here and use APIs like `#expect(...)` to check expected conditions.

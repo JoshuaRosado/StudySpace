@@ -24,25 +24,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A25AC5C42D99D9BE00B6DB70 /* StudyWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A25AC5D42D99D9C300B6DB70 /* StudyWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudyWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A25AC5DE2D99D9C300B6DB70 /* StudyWatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudyWatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A25AC5C42D99D9BE00B6DB70 /* StudySpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudySpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A25AC5D42D99D9C300B6DB70 /* StudySpaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudySpaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A25AC5DE2D99D9C300B6DB70 /* StudySpaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudySpaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		A25AC5C62D99D9BE00B6DB70 /* StudyWatch */ = {
+		A25AC5C62D99D9BE00B6DB70 /* StudySpace */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = StudyWatch;
+			path = StudySpace;
 			sourceTree = "<group>";
 		};
-		A25AC5D72D99D9C300B6DB70 /* StudyWatchTests */ = {
+		A25AC5D72D99D9C300B6DB70 /* StudySpaceTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = StudyWatchTests;
+			path = StudySpaceTests;
 			sourceTree = "<group>";
 		};
-		A25AC5E12D99D9C300B6DB70 /* StudyWatchUITests */ = {
+		A25AC5E12D99D9C300B6DB70 /* StudySpaceUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = StudyWatchUITests;
+			path = StudySpaceUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,9 +75,9 @@
 		A25AC5BB2D99D9BE00B6DB70 = {
 			isa = PBXGroup;
 			children = (
-				A25AC5C62D99D9BE00B6DB70 /* StudyWatch */,
-				A25AC5D72D99D9C300B6DB70 /* StudyWatchTests */,
-				A25AC5E12D99D9C300B6DB70 /* StudyWatchUITests */,
+				A25AC5C62D99D9BE00B6DB70 /* StudySpace */,
+				A25AC5D72D99D9C300B6DB70 /* StudySpaceTests */,
+				A25AC5E12D99D9C300B6DB70 /* StudySpaceUITests */,
 				A25AC5C52D99D9BE00B6DB70 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,9 +85,9 @@
 		A25AC5C52D99D9BE00B6DB70 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A25AC5C42D99D9BE00B6DB70 /* StudyWatch.app */,
-				A25AC5D42D99D9C300B6DB70 /* StudyWatchTests.xctest */,
-				A25AC5DE2D99D9C300B6DB70 /* StudyWatchUITests.xctest */,
+				A25AC5C42D99D9BE00B6DB70 /* StudySpace.app */,
+				A25AC5D42D99D9C300B6DB70 /* StudySpaceTests.xctest */,
+				A25AC5DE2D99D9C300B6DB70 /* StudySpaceUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A25AC5C32D99D9BE00B6DB70 /* StudyWatch */ = {
+		A25AC5C32D99D9BE00B6DB70 /* StudySpace */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A25AC5E82D99D9C300B6DB70 /* Build configuration list for PBXNativeTarget "StudyWatch" */;
+			buildConfigurationList = A25AC5E82D99D9C300B6DB70 /* Build configuration list for PBXNativeTarget "StudySpace" */;
 			buildPhases = (
 				A25AC5C02D99D9BE00B6DB70 /* Sources */,
 				A25AC5C12D99D9BE00B6DB70 /* Frameworks */,
@@ -108,18 +108,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				A25AC5C62D99D9BE00B6DB70 /* StudyWatch */,
+				A25AC5C62D99D9BE00B6DB70 /* StudySpace */,
 			);
-			name = StudyWatch;
+			name = StudySpace;
 			packageProductDependencies = (
 			);
 			productName = StudyWatch;
-			productReference = A25AC5C42D99D9BE00B6DB70 /* StudyWatch.app */;
+			productReference = A25AC5C42D99D9BE00B6DB70 /* StudySpace.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A25AC5D32D99D9C300B6DB70 /* StudyWatchTests */ = {
+		A25AC5D32D99D9C300B6DB70 /* StudySpaceTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A25AC5EB2D99D9C300B6DB70 /* Build configuration list for PBXNativeTarget "StudyWatchTests" */;
+			buildConfigurationList = A25AC5EB2D99D9C300B6DB70 /* Build configuration list for PBXNativeTarget "StudySpaceTests" */;
 			buildPhases = (
 				A25AC5D02D99D9C300B6DB70 /* Sources */,
 				A25AC5D12D99D9C300B6DB70 /* Frameworks */,
@@ -131,18 +131,18 @@
 				A25AC5D62D99D9C300B6DB70 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				A25AC5D72D99D9C300B6DB70 /* StudyWatchTests */,
+				A25AC5D72D99D9C300B6DB70 /* StudySpaceTests */,
 			);
-			name = StudyWatchTests;
+			name = StudySpaceTests;
 			packageProductDependencies = (
 			);
 			productName = StudyWatchTests;
-			productReference = A25AC5D42D99D9C300B6DB70 /* StudyWatchTests.xctest */;
+			productReference = A25AC5D42D99D9C300B6DB70 /* StudySpaceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A25AC5DD2D99D9C300B6DB70 /* StudyWatchUITests */ = {
+		A25AC5DD2D99D9C300B6DB70 /* StudySpaceUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A25AC5EE2D99D9C300B6DB70 /* Build configuration list for PBXNativeTarget "StudyWatchUITests" */;
+			buildConfigurationList = A25AC5EE2D99D9C300B6DB70 /* Build configuration list for PBXNativeTarget "StudySpaceUITests" */;
 			buildPhases = (
 				A25AC5DA2D99D9C300B6DB70 /* Sources */,
 				A25AC5DB2D99D9C300B6DB70 /* Frameworks */,
@@ -154,13 +154,13 @@
 				A25AC5E02D99D9C300B6DB70 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				A25AC5E12D99D9C300B6DB70 /* StudyWatchUITests */,
+				A25AC5E12D99D9C300B6DB70 /* StudySpaceUITests */,
 			);
-			name = StudyWatchUITests;
+			name = StudySpaceUITests;
 			packageProductDependencies = (
 			);
 			productName = StudyWatchUITests;
-			productReference = A25AC5DE2D99D9C300B6DB70 /* StudyWatchUITests.xctest */;
+			productReference = A25AC5DE2D99D9C300B6DB70 /* StudySpaceUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +186,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A25AC5BF2D99D9BE00B6DB70 /* Build configuration list for PBXProject "StudyWatch" */;
+			buildConfigurationList = A25AC5BF2D99D9BE00B6DB70 /* Build configuration list for PBXProject "StudySpace" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -200,9 +200,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A25AC5C32D99D9BE00B6DB70 /* StudyWatch */,
-				A25AC5D32D99D9C300B6DB70 /* StudyWatchTests */,
-				A25AC5DD2D99D9C300B6DB70 /* StudyWatchUITests */,
+				A25AC5C32D99D9BE00B6DB70 /* StudySpace */,
+				A25AC5D32D99D9C300B6DB70 /* StudySpaceTests */,
+				A25AC5DD2D99D9C300B6DB70 /* StudySpaceUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,12 +258,12 @@
 /* Begin PBXTargetDependency section */
 		A25AC5D62D99D9C300B6DB70 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A25AC5C32D99D9BE00B6DB70 /* StudyWatch */;
+			target = A25AC5C32D99D9BE00B6DB70 /* StudySpace */;
 			targetProxy = A25AC5D52D99D9C300B6DB70 /* PBXContainerItemProxy */;
 		};
 		A25AC5E02D99D9C300B6DB70 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A25AC5C32D99D9BE00B6DB70 /* StudyWatch */;
+			target = A25AC5C32D99D9BE00B6DB70 /* StudySpace */;
 			targetProxy = A25AC5DF2D99D9C300B6DB70 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -461,7 +461,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StudyWatch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StudyWatch";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StudySpace.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StudySpace";
 			};
 			name = Debug;
 		};
@@ -480,7 +480,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StudyWatch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StudyWatch";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StudySpace.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StudySpace";
 			};
 			name = Release;
 		};
@@ -521,7 +521,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A25AC5BF2D99D9BE00B6DB70 /* Build configuration list for PBXProject "StudyWatch" */ = {
+		A25AC5BF2D99D9BE00B6DB70 /* Build configuration list for PBXProject "StudySpace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A25AC5E62D99D9C300B6DB70 /* Debug */,
@@ -530,7 +530,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A25AC5E82D99D9C300B6DB70 /* Build configuration list for PBXNativeTarget "StudyWatch" */ = {
+		A25AC5E82D99D9C300B6DB70 /* Build configuration list for PBXNativeTarget "StudySpace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A25AC5E92D99D9C300B6DB70 /* Debug */,
@@ -539,7 +539,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A25AC5EB2D99D9C300B6DB70 /* Build configuration list for PBXNativeTarget "StudyWatchTests" */ = {
+		A25AC5EB2D99D9C300B6DB70 /* Build configuration list for PBXNativeTarget "StudySpaceTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A25AC5EC2D99D9C300B6DB70 /* Debug */,
@@ -548,7 +548,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A25AC5EE2D99D9C300B6DB70 /* Build configuration list for PBXNativeTarget "StudyWatchUITests" */ = {
+		A25AC5EE2D99D9C300B6DB70 /* Build configuration list for PBXNativeTarget "StudySpaceUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A25AC5EF2D99D9C300B6DB70 /* Debug */,
