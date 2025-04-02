@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A215404B2D9DC09C00BAF965 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A215404A2D9DC09C00BAF965 /* HomeView.swift */; };
+		A215404D2D9DC2A600BAF965 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A215404C2D9DC2A600BAF965 /* TimerView.swift */; };
+		A215404F2D9DCAA500BAF965 /* TimerCountDownFormatStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A215404E2D9DCAA500BAF965 /* TimerCountDownFormatStyle.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A25AC5D52D99D9C300B6DB70 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A215404A2D9DC09C00BAF965 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A215404C2D9DC2A600BAF965 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		A215404E2D9DCAA500BAF965 /* TimerCountDownFormatStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCountDownFormatStyle.swift; sourceTree = "<group>"; };
 		A25AC5C42D99D9BE00B6DB70 /* StudySpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudySpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A25AC5D42D99D9C300B6DB70 /* StudySpaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudySpaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A25AC5DE2D99D9C300B6DB70 /* StudySpaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudySpaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +84,9 @@
 		A25AC5BB2D99D9BE00B6DB70 = {
 			isa = PBXGroup;
 			children = (
+				A215404E2D9DCAA500BAF965 /* TimerCountDownFormatStyle.swift */,
+				A215404C2D9DC2A600BAF965 /* TimerView.swift */,
+				A215404A2D9DC09C00BAF965 /* HomeView.swift */,
 				A25AC5C62D99D9BE00B6DB70 /* StudySpace */,
 				A25AC5D72D99D9C300B6DB70 /* StudySpaceTests */,
 				A25AC5E12D99D9C300B6DB70 /* StudySpaceUITests */,
@@ -236,6 +248,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A215404D2D9DC2A600BAF965 /* TimerView.swift in Sources */,
+				A215404B2D9DC09C00BAF965 /* HomeView.swift in Sources */,
+				A215404F2D9DCAA500BAF965 /* TimerCountDownFormatStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
