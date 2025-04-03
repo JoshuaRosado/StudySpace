@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import Combine
 
 struct HomeView: View {
     
     @State private var isStudyModeActive: Bool = false
-    @State private var timeRemaining = 1800
+    @State private var timeRemaining = 1800 // 30 min study session
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {
@@ -19,40 +20,18 @@ struct HomeView: View {
     
             VStack{
             if isStudyModeActive{
-                // Displaying timeRemaining
-                Text(timeRemaining, format: .number)
-                    // receiving timer
-                    .onReceive(timer) { _ in
-                        // As long "timer" runs and "timeRemaining" is greater than 0
-                        if timeRemaining > 0 {
-                            // subtract 1 from timeRemaining
-                            timeRemaining -= 1
-                        }
-                            // when timeRemaining reaches 0
-                        else if timeRemaining == 0 {
-                            withAnimation{
-                                // stop timer
-                                timer.upstream.connect().cancel()
-                                // make introView invisible
-                                isStudyModeActive = false
-                            }
-                        }
-                    }
-                // Hide the timeRemaining( We do not need it visible )
-                    .opacity(0)
-                
-                
-                
+                // TimerView using the main timeRemaining for study session.
+                TimerView(timeRemaining: timeRemaining, introViewVisible: $isStudyModeActive, timer: timer)
                     
-                    Text(timeRemaining, format: .timerCountdown)
                 }
                 Button(isStudyModeActive ? "Exit Study Mode" :"Study Mode"){
                     withAnimation{
+                        
+                        
 
                         isStudyModeActive.toggle()
                     }
-                    
-                    
+ 
                 
                 }
                 }

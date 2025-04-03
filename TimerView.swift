@@ -6,15 +6,16 @@
 //
 
 import SwiftUI
+import Combine
 
 struct TimerView: View {
     @State var timeRemaining: Int
     @State var introViewVisible: Binding<Bool>
-    var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    var timer : Publishers.Autoconnect<Timer.TimerPublisher>
     
     var body: some View {
         // Displaying timeRemaining
-        Text(timeRemaining, format: .number)
+        Text(timeRemaining, format: .timerCountdown)
             // receiving timer
             .onReceive(timer) { _ in
                 // As long "timer" runs and "timeRemaining" is greater than 0
@@ -32,12 +33,9 @@ struct TimerView: View {
                     }
                 }
             }
-        // Hide the timeRemaining( We do not need it visible )
-            .opacity(0)
-        
     }
 }
 
 #Preview {
-    TimerView(timeRemaining: 5, introViewVisible: .constant(true))
+    TimerView(timeRemaining: 5, introViewVisible: .constant(true), timer: Timer.publish(every: 1, on: .main, in: .common).autoconnect())
 }

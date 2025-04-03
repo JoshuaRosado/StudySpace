@@ -18,7 +18,10 @@ struct OpeningView: View {
     
     var body: some View {
         ZStack{
-            TimerView(timeRemaining: timeRemaining, introViewVisible: $isViewVisible)
+            
+            TimerView(timeRemaining: timeRemaining, introViewVisible: $isViewVisible, timer: timer)
+            // Hide the timeRemaining( We do not need it visible )
+                .opacity(0)
             
             // Display introView when Bool ==  true
             if isViewVisible {
