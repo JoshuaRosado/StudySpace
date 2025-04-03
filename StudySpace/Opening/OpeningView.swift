@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+ 
 struct OpeningView: View {
     // tracking the intro View
     // When app opens, the introView is visible ( true )
