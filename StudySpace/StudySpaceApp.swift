@@ -5,7 +5,9 @@
 //  Created by Joshua Rosado Olivencia on 3/30/25.
 //
 
+import SwiftData
 import SwiftUI
+
 
 @main
 struct StudySpaceApp: App {
@@ -13,5 +15,6 @@ struct StudySpaceApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Note.self)
     }
 }
