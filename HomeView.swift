@@ -5,10 +5,14 @@
 //  Created by Joshua Rosado Olivencia on 4/2/25.
 //
 
+import SwiftData
 import SwiftUI
 import Combine
 
 struct HomeView: View {
+    
+
+    
     @State private var scale: CGSize = .zero
     @State private var isStudyModeActive: Bool = false
     @State private var timeRemaining = 1800 // 30 min study session
@@ -81,6 +85,7 @@ struct HomeView: View {
                 .foregroundStyle(.roastedPeach)
                 
             }
+            
             .sheet(isPresented: $showNotes){
                 NotesView()
             }
