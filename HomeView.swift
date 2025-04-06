@@ -77,22 +77,13 @@ struct HomeView: View {
             }
             .toolbar{
                 HStack{
-                    Button("Notes"){
-                        showNotes.toggle()
+                    NavigationLink("Notes"){
+                        NotesView()
+                        
                     }
-                        .padding(.trailing)
+                    .foregroundStyle(.roastedPeach)
                 }
-                .foregroundStyle(.roastedPeach)
-                
             }
-            
-            .sheet(isPresented: $showNotes){
-                NotesView()
-            }
-            
-            
-            
-            .frame(height: 800, alignment: .center)
         }
     }
     
