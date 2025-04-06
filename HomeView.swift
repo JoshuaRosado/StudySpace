@@ -10,12 +10,14 @@ import SwiftUI
 import Combine
 
 struct HomeView: View {
-    
 
-    
     @State private var scale: CGSize = .zero
     @State private var isStudyModeActive: Bool = false
+    @State private var isStudyModeBtnActive: Bool = false
     @State private var timeRemaining = 1800 // 30 min study session
+    
+    @State private var num : CGFloat = 2
+
     
     @State private var showNotes = false
     
@@ -53,21 +55,28 @@ struct HomeView: View {
                         // When Study Mode is NOT active, display Study Mode button only
                         
                         Button("Study Mode"){
-                            withAnimation{
+                            withAnimation(.easeIn(duration: 0.3)){
+                                isStudyModeBtnActive.toggle()
+                                num = -2
+                                
+                            }
+                            withAnimation(.easeOut.delay(1.5)){
                                 
                                 isStudyModeActive.toggle()
+                                num = 2
+                                
                             }
                         }
                         
                         .font(.title)
                         .fontWeight(.bold)
-                        .fontDesign(.serif)
-                        .foregroundStyle(.white)
+                        .foregroundStyle(Color.auLait)
                         .padding()
                         .buttonStyle(.plain)
                         .background(.inkWell)
                         .clipShape(Capsule())
-                        .shadow(color:.black.opacity(0.4) , radius: 2 , x: 2, y: 2)
+                        .shadow(color:.black.opacity(0.4) , radius: 2 , x: num, y: num)
+                        
                         
                         
                         
