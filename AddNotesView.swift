@@ -21,17 +21,31 @@ struct AddNotesView: View {
     var body: some View {
         NavigationStack{
             Form{
-                Section("Title"){
-                    TextField("Title", text:$title )
+                Section{
+                    TextField("Title", text:$title)
+                        .fontWeight(.bold)
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 20).stroke(Color.cremeBrulee.opacity(0.04), lineWidth: 5).fill(.auLait.opacity(0.08)))
+     
                 }
-                Section("Notes"){
+                
+                Section{
                     TextEditor(text: $content)
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 20).stroke(Color.cremeBrulee.opacity(0.04), lineWidth: 5).fill(.auLait.opacity(0.08)))
+                        .frame(minHeight: 250)
+                        
+                        
                 }
+                
+                
             }
+            .fontDesign(.monospaced)
             .navigationTitle("Add Notes")
             .navigationBarTitleDisplayMode(.inline)
             .scrollContentBackground(.hidden)
-            .background(Color.wholeWheat)
+            .background(.white)
+            
         }
         
         

@@ -53,7 +53,7 @@ struct NotesView: View {
                                 Spacer()
                                 Text(arr)
                                     .font(.subheadline)
-                                    .foregroundStyle(Color("eucalyptus")).opacity(0.5)
+                                    .foregroundStyle(Color("cremeBrulee")).opacity(0.5)
                             }
                             .fontDesign(.monospaced)
                         }
@@ -62,7 +62,7 @@ struct NotesView: View {
                     // Hide background to Add customize background
                     .scrollContentBackground(.hidden)
                 }
-                .foregroundStyle(Color("eucalyptus"))
+                .foregroundStyle(Color("cremeBrulee"))
                 .shadow(color: Color("cremeBrulee").opacity(0.4), radius: 2, x: 2, y: 2)
                 
                 

@@ -13,11 +13,7 @@ struct HomeView: View {
     
     @State private var scale: CGSize = .zero
     @State private var isStudyModeActive: Bool = false
-    @State private var isStudyModeBtnActive: Bool = false
     @State private var timeRemaining = 1800 // 30 min study session
-    
-    @State private var shadowNum : CGFloat = 2
-
     @State private var showNotes = false
     
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -54,23 +50,18 @@ struct HomeView: View {
                         // When Study Mode is NOT active, display Study Mode button only
                         
                         Button("Study Mode"){
-                            // isStudyModeBtnActive
-                            // Animation for button when is clicked
-                            withAnimation(.easeIn(duration: 0.3)){
-                                isStudyModeBtnActive.toggle()
-                                shadowNum = -2
-                                
-                            }
+ 
+                            
                             withAnimation(.easeOut.delay(1.5)){
                                 
                                 isStudyModeActive.toggle()
-                                shadowNum = 2
+                                
                                 
                             }
                         }
                         
                         .studyModeBtnStyle()
-                        .shadow(color:.black.opacity(0.4) , radius: 2 , x: shadowNum, y: shadowNum)
+                        .shadow(color:.black.opacity(0.4) , radius: 2 , x: 2, y: 2)
                     }
                 }
             }
