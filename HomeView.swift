@@ -10,19 +10,18 @@ import SwiftUI
 import Combine
 
 struct HomeView: View {
-
+    
     @State private var scale: CGSize = .zero
     @State private var isStudyModeActive: Bool = false
     @State private var isStudyModeBtnActive: Bool = false
     @State private var timeRemaining = 1800 // 30 min study session
     
-    @State private var num : CGFloat = 2
+    @State private var shadowNum : CGFloat = 2
 
-    
     @State private var showNotes = false
     
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -30,9 +29,9 @@ struct HomeView: View {
                 
                 VStack{
                     // When StudyMode is Active
-                    // Display Main Timer with the bottom button to exit StudyMode
+                    // Display Main Timer in the center with the exit StudyMode button at the bottom
                     if isStudyModeActive{
-                        // TimerView using the main timeRemaining for study session.
+                        // Using TimerView with timeRemaining for study session.
                         Spacer()
                         TimerView(timeRemaining: timeRemaining, introViewVisible: $isStudyModeActive, timer: timer)
                             .font(.largeTitle)
@@ -55,40 +54,31 @@ struct HomeView: View {
                         // When Study Mode is NOT active, display Study Mode button only
                         
                         Button("Study Mode"){
+                            // isStudyModeBtnActive
+                            // Animation for button when is clicked
                             withAnimation(.easeIn(duration: 0.3)){
                                 isStudyModeBtnActive.toggle()
-                                num = -2
+                                shadowNum = -2
                                 
                             }
                             withAnimation(.easeOut.delay(1.5)){
                                 
                                 isStudyModeActive.toggle()
-                                num = 2
+                                shadowNum = 2
                                 
                             }
                         }
                         
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundStyle(Color.auLait)
-                        .padding()
-                        .buttonStyle(.plain)
-                        .background(.inkWell)
-                        .clipShape(Capsule())
-                        .shadow(color:.black.opacity(0.4) , radius: 2 , x: num, y: num)
-                        
-                        
-                        
-                        
+                        .studyModeBtnStyle()
+                        .shadow(color:.black.opacity(0.4) , radius: 2 , x: shadowNum, y: shadowNum)
                     }
-                    
                 }
             }
+            // Toolbar with NavigationLink "Notes" to display NotesView()
             .toolbar{
                 HStack{
                     NavigationLink("Notes"){
                         NotesView()
-                        
                     }
                     .foregroundStyle(.roastedPeach)
                 }
@@ -96,7 +86,7 @@ struct HomeView: View {
         }
     }
     
-    }
+}
 
 
 #Preview {
