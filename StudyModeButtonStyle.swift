@@ -11,13 +11,15 @@ struct StudyModeButtonStyle: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(.title)
-            .fontWeight(.bold)
+            .font(.system(size: 24))
+            .fontWeight(.medium)
             .foregroundStyle(Color.auLait)
             .padding()
+            .padding(.bottom, 5)
             .buttonStyle(.plain)
-            .background(.inkWell)
-            .clipShape(Capsule())
+            .background(.eucalyptus.opacity(0.03))
+            .clipShape(.capsule)
+            
     }
 }
 

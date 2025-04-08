@@ -24,18 +24,22 @@ struct AddNotesView: View {
                 Section{
                     TextField("Title", text:$title)
                         .fontWeight(.bold)
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 20).stroke(Color.cremeBrulee.opacity(0.04), lineWidth: 5).fill(.auLait.opacity(0.08)))
+                        .padding(.vertical,4)
+                        
+                        
      
                 }
                 
                 Section{
                     TextEditor(text: $content)
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 20).stroke(Color.cremeBrulee.opacity(0.04), lineWidth: 5).fill(.auLait.opacity(0.08)))
-                        .frame(minHeight: 250)
+
+                        .frame(minHeight: 200)
+
+                }
+                .toolbar{
+                    Button("Add", systemImage: "plus"){
                         
-                        
+                    }
                 }
                 
                 
@@ -44,7 +48,7 @@ struct AddNotesView: View {
             .navigationTitle("Add Notes")
             .navigationBarTitleDisplayMode(.inline)
             .scrollContentBackground(.hidden)
-            .background(.white)
+            .background(.auLait.opacity(0.2))
             
         }
         

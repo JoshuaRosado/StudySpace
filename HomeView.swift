@@ -10,11 +10,11 @@ import SwiftUI
 import Combine
 
 struct HomeView: View {
-    
-    @State private var scale: CGSize = .zero
     @State private var isStudyModeActive: Bool = false
     @State private var timeRemaining = 1800 // 30 min study session
-    @State private var showNotes = false
+    @State private var scale : CGFloat = 1
+
+    var shadowInt: CGFloat = 4
     
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -43,25 +43,32 @@ struct HomeView: View {
                             }
                         }
                         .foregroundStyle(.roastedPeach)
-                        .fontDesign(.serif)
-                        .padding(.bottom, 2)
+                        .padding(.bottom, 4)
+                        .font(.caption)
                     } else {
                         
                         // When Study Mode is NOT active, display Study Mode button only
                         
-                        Button("Study Mode"){
- 
-                            
-                            withAnimation(.easeOut.delay(1.5)){
-                                
-                                isStudyModeActive.toggle()
+                            Button("Study Mode"){
                                 
                                 
+                                withAnimation(.linear(duration:1)){
+//
+                                    scale = 0
+                                    
+                                    
+                                }
+                                withAnimation(.easeOut.delay(0.8)){
+                                    
+                                    isStudyModeActive.toggle()
+                                        scale = 1
+
                             }
                         }
                         
+                            .padding(.horizontal)
                         .studyModeBtnStyle()
-                        .shadow(color:.black.opacity(0.4) , radius: 2 , x: 2, y: 2)
+                        
                     }
                 }
             }

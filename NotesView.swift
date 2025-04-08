@@ -9,12 +9,19 @@ import SwiftUI
 
 
 struct NotesView: View {
+    
     // Customizing NavigationTitle's foregroundColor
     init() {
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.cremeBrulee]}
+        
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.cremeBrulee]
+        
+        
+    }
     
     // create our var for model
     @Environment(\.modelContext) var modelContext
+    
+    
     
     // ==================================
     //return the data sorted by date
@@ -23,11 +30,12 @@ struct NotesView: View {
     
     
     
+    
     // ======== SAMPLE ARRAY FOR PREVIEW
     let arrs = [ "Hello", "Hola", "Ciao", "Konichiwa"]
     
     @State private var openAddNotesView: Bool = false
-
+    
     
     //    let note: Note
     
@@ -61,13 +69,14 @@ struct NotesView: View {
                     }
                     // Hide background to Add customize background
                     .scrollContentBackground(.hidden)
+                    
                 }
                 .foregroundStyle(Color("cremeBrulee"))
                 .shadow(color: Color("cremeBrulee").opacity(0.4), radius: 2, x: 2, y: 2)
                 
                 
             }
-            .navigationTitle("My Notes")
+            .navigationTitle("My Notes").fontDesign(.serif)
             .navigationBarTitleDisplayMode(.inline)
             
             // Toolbar with add notes "plus" button to redirect to the form of creating new notes and adding them to the list displayed
@@ -85,6 +94,8 @@ struct NotesView: View {
         }
     }
 }
+
+
 
 #Preview {
     NotesView()
