@@ -14,6 +14,7 @@
 		A215407D2DA0A23B00BAF965 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A215407C2DA0A23B00BAF965 /* NotesView.swift */; };
 		A215407F2DA4481A00BAF965 /* StudyModeButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A215407E2DA4481A00BAF965 /* StudyModeButtonStyle.swift */; };
 		A21540812DA44F3300BAF965 /* AddNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21540802DA44F3300BAF965 /* AddNotesView.swift */; };
+		A21540832DA706E400BAF965 /* NotesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21540822DA706E400BAF965 /* NotesDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		A215407C2DA0A23B00BAF965 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		A215407E2DA4481A00BAF965 /* StudyModeButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyModeButtonStyle.swift; sourceTree = "<group>"; };
 		A21540802DA44F3300BAF965 /* AddNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotesView.swift; sourceTree = "<group>"; };
+		A21540822DA706E400BAF965 /* NotesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDetailView.swift; sourceTree = "<group>"; };
 		A25AC5C42D99D9BE00B6DB70 /* StudySpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudySpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A25AC5D42D99D9C300B6DB70 /* StudySpaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudySpaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A25AC5DE2D99D9C300B6DB70 /* StudySpaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudySpaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +94,7 @@
 		A25AC5BB2D99D9BE00B6DB70 = {
 			isa = PBXGroup;
 			children = (
+				A21540822DA706E400BAF965 /* NotesDetailView.swift */,
 				A215407E2DA4481A00BAF965 /* StudyModeButtonStyle.swift */,
 				A215404E2D9DCAA500BAF965 /* TimerCountDownFormatStyle.swift */,
 				A215404C2D9DC2A600BAF965 /* TimerView.swift */,
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A215404D2D9DC2A600BAF965 /* TimerView.swift in Sources */,
+				A21540832DA706E400BAF965 /* NotesDetailView.swift in Sources */,
 				A21540812DA44F3300BAF965 /* AddNotesView.swift in Sources */,
 				A21540512DA0A12300BAF965 /* Note.swift in Sources */,
 				A215407F2DA4481A00BAF965 /* StudyModeButtonStyle.swift in Sources */,
