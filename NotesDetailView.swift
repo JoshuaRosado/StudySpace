@@ -14,10 +14,9 @@ struct NotesDetailView: View {
     let note : Note
     var body: some View {
         VStack{
-            Text("hello")
-//
-//            Text(note.title)
-//            Text(note.content)
+
+            Text(note.title)
+            Text(note.content)
         }
         
     }

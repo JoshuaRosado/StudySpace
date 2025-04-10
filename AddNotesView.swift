@@ -24,7 +24,7 @@ struct AddNotesView: View {
     @State private var content: String = ""
     @State private var date: Date = Date.now
     var body: some View {
-        NavigationStack{
+        VStack{
             Form{
                 Section{
                     TextField("Title", text:$title)
@@ -41,17 +41,15 @@ struct AddNotesView: View {
                         .frame(minHeight: 200)
 
                 }
-                .toolbar{
-                    Button("add"){
-                        // create new note
-                        let newNotes = Note(title: title, content: content, date: date)
-                        // added to the model array
-                        modelContext.insert(newNotes)
-                        // close view and return home
-                        dismiss()
-                        
-                        
-                    }
+                Button("", systemImage: "plus"){
+                    // create new note
+                    let newNotes = Note( title: title, content: content, date: date)
+                    // added to the model array
+                    modelContext.insert(newNotes)
+                    // close view and return home
+                    dismiss()
+                    
+                    
                 }
                 
                 
@@ -62,10 +60,14 @@ struct AddNotesView: View {
             .scrollContentBackground(.hidden)
             .background(.auLait.opacity(0.2))
             
+            
+            
         }
         
         
+        
     }
+    
 }
 
 #Preview {
