@@ -19,6 +19,7 @@ struct NotesView: View {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.cremeBrulee]
     }
     
+    @Environment(\.dismiss) var dismiss
     // create our var for model
     @Environment(\.modelContext) var modelContext
     
@@ -26,6 +27,8 @@ struct NotesView: View {
     //return the data sorted by date
     // var type : Array of Note class model
     @Query(sort: \Note.date, order:.forward) var notes: [Note]
+    
+    
     
     
     
@@ -61,16 +64,15 @@ struct NotesView: View {
                             }
                             .fontDesign(.monospaced)
                         }
+                        .onDelete(perform: deleteItems)
+                        
                         .listRowBackground(Color.wholeWheat).brightness(-0.1)
+                        
                     }
                     // Hide background to Add customize background
                     .scrollContentBackground(.hidden)
                     
                     
-                    //  Button add notes "plus" button to redirect to the form of creating new notes and adding them to the list displayed
-                    Button("Add Notes" ,systemImage: "plus"){
-                        openAddNotesView.toggle()
-                    }
                     
                 }
                 .foregroundStyle(Color("cremeBrulee"))
@@ -79,6 +81,28 @@ struct NotesView: View {
                 
             }
             .navigationTitle("My Notes").fontDesign(.serif)
+            .toolbar{
+                ToolbarItem(placement: .topBarLeading){
+                    Button("",systemImage: "arrow.left"){
+                        dismiss()
+                        
+                    }
+                    
+                }
+                
+                ToolbarItem(placement: .secondaryAction){
+                    EditButton()
+                }
+                
+                ToolbarItem(placement: .secondaryAction){
+                    //  Button add notes "plus" button to redirect to the form of creating new notes and adding them to the list displayed
+                    Button("Add Notes" ,systemImage: "plus"){
+                        openAddNotesView.toggle()
+                    }
+                    .foregroundStyle(.cremeBrulee)
+                }
+                
+            }
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: Note.self){ note in
                 
@@ -87,11 +111,21 @@ struct NotesView: View {
             }
             
             
-
+            
+            
+            
             
             .sheet(isPresented: $openAddNotesView){
                 AddNotesView()
             }
+        }
+    }
+    func deleteItems(at offsets: IndexSet){
+        for offset in offsets {
+            // find note in our query
+            let note = notes[offset]
+            // delete note from our model
+            modelContext.delete(note)
         }
     }
 }

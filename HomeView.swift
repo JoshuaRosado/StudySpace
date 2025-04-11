@@ -12,6 +12,8 @@ import Combine
 struct HomeView: View {
     @State private var isStudyModeActive: Bool = false
     @State private var timeRemaining = 1800 // 30 min study session
+    
+    @State private var showNotesView: Bool = false
     @State private var scale : CGFloat = 1
 
     var shadowInt: CGFloat = 4
@@ -19,7 +21,6 @@ struct HomeView: View {
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        NavigationStack{
             ZStack{
                 Color.inkWell.edgesIgnoringSafeArea(.all)
                 
@@ -36,14 +37,24 @@ struct HomeView: View {
                         
                         
                         Spacer()
-                        
-                        Button("Exit Study Mode"){
-                            withAnimation{
-                                isStudyModeActive.toggle()
+                        HStack{
+                            Spacer() 
+                            Button("Exit Study Mode"){
+                                withAnimation{
+                                    isStudyModeActive.toggle()
+                                }
                             }
+                            Spacer()
+                            
+                            
+                            Button("Notes"){
+                                showNotesView.toggle()
+                            }
+                            Spacer()
                         }
                         .foregroundStyle(.roastedPeach)
                         .padding(.bottom, 4)
+                        
                         .font(.caption)
                     } else {
                         
@@ -70,21 +81,25 @@ struct HomeView: View {
                         .studyModeBtnStyle()
                         
                     }
+                    
                 }
+            }
+            .sheet(isPresented: $showNotesView){
+                NotesView()
             }
             // Toolbar with NavigationLink "Notes" to display NotesView()
-            .toolbar{
-                HStack{
-                    NavigationLink("Notes"){
-                        NotesView()
-                    }
-                    .foregroundStyle(.roastedPeach)
-                }
-            }
+//            .toolbar{
+//                HStack{
+//                    NavigationLink("Notes"){
+//                        NotesView()
+//                    }
+//                    .foregroundStyle(.roastedPeach)
+//                }
+//            }
         }
     }
     
-}
+
 
 
 #Preview {

@@ -11,9 +11,9 @@ struct StudyModeButtonStyle: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(.system(size: 24))
-            .fontWeight(.medium)
+            .font(.system(size: 22, weight: .light))
             .foregroundStyle(Color.auLait)
+            .fontDesign(.serif)
             .padding()
             .padding(.bottom, 5)
             .buttonStyle(.plain)
