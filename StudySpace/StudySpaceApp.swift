@@ -13,7 +13,11 @@ import SwiftUI
 struct StudySpaceApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ZStack{
+                Color.wholeWheat.ignoresSafeArea()
+                
+                ContentView()
+            }
         }
         .modelContainer(for: Note.self)
     }
