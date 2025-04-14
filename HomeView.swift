@@ -13,6 +13,11 @@ struct HomeView: View {
     @State private var isStudyModeActive: Bool = false
     @State private var timeRemaining = 1800 // 30 min study session
     
+    var studyTimeOptions = [900,1800,2700,3600]
+    @State private var selectedStudyTime = 1800
+    var breakTimeOptions = [300,600,900]
+    @State private var selectedBreakTime = 300
+    
     @State private var showNotesView: Bool = false
     @State private var scale : CGFloat = 1
 
@@ -58,6 +63,24 @@ struct HomeView: View {
                         .font(.caption)
                     } else {
                         
+                        HStack{
+                            Text("Study Time")
+                            Picker("Study time", selection: $selectedStudyTime){
+                                ForEach(studyTimeOptions, id: \.self){
+                                    Text($0, format: .timeSelection)
+                                }
+                            }
+                            .pickerStyle(.menu)
+                        }
+                        HStack{
+                            Text("Break Time")
+                            Picker("Break Time", selection: $selectedBreakTime){
+                                ForEach(breakTimeOptions, id: \.self){
+                                    Text($0, format: .timeSelection)
+                                }
+                            }
+                        }
+                        
                         // When Study Mode is NOT active, display Study Mode button only
                         
                             Button("Study Mode"){
@@ -79,23 +102,17 @@ struct HomeView: View {
                         
                             .padding(.horizontal)
                         .studyModeBtnStyle()
+                         
+                        
                         
                     }
-                    
+
                 }
             }
+            .foregroundStyle(.wholeWheat)
             .sheet(isPresented: $showNotesView){
                 NotesView()
             }
-            // Toolbar with NavigationLink "Notes" to display NotesView()
-//            .toolbar{
-//                HStack{
-//                    NavigationLink("Notes"){
-//                        NotesView()
-//                    }
-//                    .foregroundStyle(.roastedPeach)
-//                }
-//            }
         }
     }
     

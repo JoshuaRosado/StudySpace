@@ -21,3 +21,18 @@ struct TimerCountDownFormatStyle : FormatStyle {
 extension FormatStyle where Self == TimerCountDownFormatStyle {
     static var timerCountdown : TimerCountDownFormatStyle { TimerCountDownFormatStyle()}
 }
+
+
+struct TimeFormatStyle : FormatStyle {
+    func format (_ value: Int) -> String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.minute]
+        formatter.unitsStyle = .abbreviated
+        formatter.zeroFormattingBehavior = .pad
+        return formatter.string(from: TimeInterval(value)) ?? ""
+    }
+}
+
+extension FormatStyle where Self == TimeFormatStyle {
+    static var timeSelection : TimeFormatStyle { TimeFormatStyle()}
+}
