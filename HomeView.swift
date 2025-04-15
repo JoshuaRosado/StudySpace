@@ -63,26 +63,10 @@ struct HomeView: View {
                         .font(.caption)
                     } else {
                         
-                        HStack{
-                            Text("Study Time")
-                            Picker("Study time", selection: $selectedStudyTime){
-                                ForEach(studyTimeOptions, id: \.self){
-                                    Text($0, format: .timeSelection)
-                                }
-                            }
-                            .pickerStyle(.menu)
-                        }
-                        HStack{
-                            Text("Break Time")
-                            Picker("Break Time", selection: $selectedBreakTime){
-                                ForEach(breakTimeOptions, id: \.self){
-                                    Text($0, format: .timeSelection)
-                                }
-                            }
-                        }
+                        
                         
                         // When Study Mode is NOT active, display Study Mode button only
-                        
+                        Spacer()
                             Button("Study Mode"){
                                 
                                 
@@ -101,7 +85,33 @@ struct HomeView: View {
                         }
                         
                             .padding(.horizontal)
+                            
                         .studyModeBtnStyle()
+                        Spacer()
+                        VStack{
+                            HStack{
+                                Text("Study Time")
+                                Picker("Study time", selection: $selectedStudyTime){
+                                    ForEach(studyTimeOptions, id: \.self){
+                                        Text($0, format: .timeSelection)
+                                    }
+                                }
+                                .pickerStyle(.menu)
+                                .tint(Color.wholeWheat)
+                            }
+                            
+                            HStack{
+                                Text("Break Time")
+                                Picker("Break Time", selection: $selectedBreakTime){
+                                    ForEach(breakTimeOptions, id: \.self){
+                                        Text($0, format: .timeSelection)
+                                    }
+                                }
+                                .tint(Color.wholeWheat)
+                                
+                            }
+                        }
+                        .padding(.top, -120)
                          
                         
                         

@@ -27,7 +27,7 @@ struct TimeFormatStyle : FormatStyle {
     func format (_ value: Int) -> String {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.minute]
-        formatter.unitsStyle = .abbreviated
+        formatter.unitsStyle = .brief
         formatter.zeroFormattingBehavior = .pad
         return formatter.string(from: TimeInterval(value)) ?? ""
     }

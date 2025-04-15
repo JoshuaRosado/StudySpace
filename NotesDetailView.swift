@@ -17,21 +17,25 @@ struct NotesDetailView: View {
     var body: some View {
         ZStack{
             Color.wholeWheat.ignoresSafeArea()
-            VStack(alignment: .leading, spacing: 25){
-                
+            VStack(spacing: 20){
+            
                 
                 Text(note.title).font(.title).fontWeight(.semibold)
-                    .padding(.vertical,15)
+                    .frame(width:350, alignment: .leading)
+                    
+                
                 Text(note.content)
+                    .frame(width: 350, alignment: .leading)
+                    .padding()
                 Spacer()
             }
+            .frame(width: 400, alignment: .leading)
+            .padding(.vertical,20)
             .background(.wholeWheat.opacity(0.5))
-            .shadow(color: Color("cremeBrulee").opacity(0.4), radius: 2, x: 2, y: 2)
-            .padding(.horizontal, 25)
-            .frame(minWidth: 400, alignment: .leading)
             .foregroundStyle(.cremeBrulee)
             .fontDesign(.serif)
         }
+    
         
     }
 }
