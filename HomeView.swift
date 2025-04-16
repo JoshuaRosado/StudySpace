@@ -13,9 +13,11 @@ struct HomeView: View {
     @State private var isStudyModeActive: Bool = false
     @State private var timeRemaining = 1800 // 30 min study session
     
-    var studyTimeOptions = [900,1800,2700,3600]
+    @State private var breakTimeRemaining = 300
+    
+    var studyTimeOptions = [5,900,1800,2700,3600]
     @State private var selectedStudyTime = 1800
-    var breakTimeOptions = [300,600,900]
+    var breakTimeOptions = [3,300,600,900]
     @State private var selectedBreakTime = 300
     
     @State private var showNotesView: Bool = false
@@ -35,7 +37,7 @@ struct HomeView: View {
                     if isStudyModeActive{
                         // Using TimerView with timeRemaining for study session.
                         Spacer()
-                        TimerView(timeRemaining: timeRemaining, introViewVisible: $isStudyModeActive, timer: timer)
+                        MainTimerView(timeRemaining: timeRemaining, breakTimeRemaining: breakTimeRemaining, timer: timer)
                             .font(.largeTitle)
                             .fontWeight(.black)
                             .foregroundStyle(.auLait)
@@ -91,7 +93,7 @@ struct HomeView: View {
                         VStack{
                             HStack{
                                 Text("Study Time")
-                                Picker("Study time", selection: $selectedStudyTime){
+                                Picker("Study time", selection: $timeRemaining){
                                     ForEach(studyTimeOptions, id: \.self){
                                         Text($0, format: .timeSelection)
                                     }
@@ -102,7 +104,7 @@ struct HomeView: View {
                             
                             HStack{
                                 Text("Break Time")
-                                Picker("Break Time", selection: $selectedBreakTime){
+                                Picker("Break Time", selection: $breakTimeRemaining){
                                     ForEach(breakTimeOptions, id: \.self){
                                         Text($0, format: .timeSelection)
                                     }

@@ -11,6 +11,7 @@ struct OpeningView: View {
     // tracking the intro View
     // When app opens, the introView is visible ( true )
     @State private var isViewVisible = true
+    @State private var breakTimerStart = false
     // time for the introView to last
     @State private var timeRemaining = 5
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -19,7 +20,7 @@ struct OpeningView: View {
     var body: some View {
         ZStack{
             
-            TimerView(timeRemaining: timeRemaining, introViewVisible: $isViewVisible, timer: timer)
+            TimerView(timeRemaining: timeRemaining, introViewVisible: $isViewVisible,breakTimerStarts: $breakTimerStart, timer: timer)
             // Hide the timeRemaining( We do not need it visible )
                 .opacity(0)
             
