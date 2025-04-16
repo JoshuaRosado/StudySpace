@@ -38,7 +38,6 @@ struct HomeView: View {
                         // Using TimerView with timeRemaining for study session.
                         Spacer()
                         MainTimerView(timeRemaining: timeRemaining, breakTimeRemaining: breakTimeRemaining, timer: timer)
-                            .font(.largeTitle)
                             .fontWeight(.black)
                             .foregroundStyle(.auLait)
                         
@@ -70,13 +69,9 @@ struct HomeView: View {
                         // When Study Mode is NOT active, display Study Mode button only
                         Spacer()
                             Button("Study Mode"){
-                                
-                                
                                 withAnimation(.linear(duration:1)){
-//
+
                                     scale = 0
-                                    
-                                    
                                 }
                                 withAnimation(.easeOut.delay(0.8)){
                                     
