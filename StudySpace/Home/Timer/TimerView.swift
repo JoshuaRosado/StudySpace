@@ -7,9 +7,12 @@
 
 import SwiftUI
 import Combine
+import AVFoundation
 
 struct TimerView: View {
+    @State var audioPlayer: AVAudioPlayer!
     @State var timeRemaining: Int
+    @State private var timerSoundEffect = false
     @State var introViewVisible: Binding<Bool>
     @State var breakTimerStarts: Binding<Bool>
     
@@ -25,8 +28,11 @@ struct TimerView: View {
                     // subtract 1 from timeRemaining
                     timeRemaining -= 1
                 }
+                
                     // when timeRemaining reaches 0
                 else if timeRemaining == 0 {
+                    
+                
                     withAnimation{
                         // stop timer
                         timer.upstream.connect().cancel()
@@ -38,7 +44,9 @@ struct TimerView: View {
                     }
                 }
             }
+        
     }
+    
 }
 
 #Preview {

@@ -23,8 +23,10 @@ struct MainTimerView: View {
             VStack{
                 TimerView(timeRemaining: timeRemaining, introViewVisible: $introViewVisible, breakTimerStarts: $breakTimerStarts, timer: timer)
                     .font(.largeTitle)
+                
                 Text("Study Mode")
-                    .font(.caption)
+                    .font(.caption  )
+                
             }
         } else {
             VStack{
@@ -41,6 +43,7 @@ struct MainTimerView: View {
         }
         
     }
+    
     
 }
 

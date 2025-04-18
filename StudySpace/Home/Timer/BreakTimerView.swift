@@ -7,8 +7,11 @@
 
 import SwiftUI
 import Combine
+import AVFoundation
 
 struct BreakTimerView: View {
+    @State var audioPlayer: AVAudioPlayer!
+    @State private var playBreakSound = false
     @State var breakTimeRemaining: Int
     @State var introViewVisible: Binding<Bool>
     @State var breakTimerStarts: Binding<Bool>
@@ -24,9 +27,16 @@ struct BreakTimerView: View {
                     // subtract 1 from timeRemaining
                     breakTimeRemaining -= 1
                 }
+                else if breakTimeRemaining > 3 {
+                    playBreakSound = false
+                }
+                
                     // when timeRemaining reaches 0
                 else if breakTimeRemaining == 0 {
+                    playBreakSound.toggle()
+                    
                     withAnimation{
+                        
                         // stop timer
                         timer.upstream.connect().cancel()
                         // make introView invisible
@@ -34,7 +44,25 @@ struct BreakTimerView: View {
                         introViewVisible.wrappedValue.toggle()
                     }
                 }
+                if playBreakSound{
+                    withAnimation(.easeInOut(duration: 5)){
+                        playSoundEffect("bell_break.wav")
+                    }
+                }
             }
+    }
+    func playSoundEffect(_ soundFileName: String) {
+        guard let soundURL = Bundle.main.url(forResource: soundFileName, withExtension: nil) else {
+            fatalError("Unable to find \(soundFileName) in bundle")
+        }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            audioPlayer.play()
+        } catch {
+            print(error.localizedDescription)
+        }
+        
     }
 }
 
