@@ -28,6 +28,12 @@ struct TimerView: View {
                     // subtract 1 from timeRemaining
                     timeRemaining -= 1
                 }
+                else if timeRemaining == 10 {
+                    timerSoundEffect.toggle()
+                }
+                else if timeRemaining == 5 {
+                    timerSoundEffect.toggle()
+                }
                 
                     // when timeRemaining reaches 0
                 else if timeRemaining == 0 {
@@ -44,6 +50,19 @@ struct TimerView: View {
                     }
                 }
             }
+        
+    }
+    func playSoundEffect(_ soundFileName: String) {
+        guard let soundURL = Bundle.main.url(forResource: soundFileName, withExtension: nil) else {
+            fatalError("Unable to find \(soundFileName) in bundle")
+        }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            audioPlayer.play()
+        } catch {
+            print(error.localizedDescription)
+        }
         
     }
     

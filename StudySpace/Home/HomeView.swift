@@ -15,9 +15,9 @@ struct HomeView: View {
     
     @State private var breakTimeRemaining = 300
     
-    var studyTimeOptions = [5,900,1800,2700,3600]
+    var studyTimeOptions = [8,900,1800,2700,3600]
     @State private var selectedStudyTime = 1800
-    var breakTimeOptions = [3,300,600,900]
+    var breakTimeOptions = [6,300,600,900]
     @State private var selectedBreakTime = 300
     
     @State private var showNotesView: Bool = false

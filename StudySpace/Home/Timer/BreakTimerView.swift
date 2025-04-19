@@ -24,6 +24,7 @@ struct BreakTimerView: View {
             .onReceive(timer) { _ in
                 // As long "timer" runs and "timeRemaining" is greater than 0
                 if breakTimeRemaining > 0 {
+                    
                     // subtract 1 from timeRemaining
                     breakTimeRemaining -= 1
                 }
@@ -31,9 +32,11 @@ struct BreakTimerView: View {
                     playBreakSound = false
                 }
                 
+                
                     // when timeRemaining reaches 0
                 else if breakTimeRemaining == 0 {
-                    playBreakSound.toggle()
+                    playBreakSound = true
+                    
                     
                     withAnimation{
                         
@@ -45,9 +48,10 @@ struct BreakTimerView: View {
                     }
                 }
                 if playBreakSound{
-                    withAnimation(.easeInOut(duration: 5)){
-                        playSoundEffect("bell_break.wav")
+                    withAnimation{
+                        SoundEffect.playSoundEffect("bell_break.wav")
                     }
+                    
                 }
             }
     }
