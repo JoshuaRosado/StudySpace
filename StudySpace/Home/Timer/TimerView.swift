@@ -13,8 +13,8 @@ struct TimerView: View {
     @State var audioPlayer: AVAudioPlayer!
     @State var timeRemaining: Int
     @State private var timerSoundEffect = false
-    @State var introViewVisible: Binding<Bool>
-    @State var breakTimerStarts: Binding<Bool>
+    @State var isVisible: Binding<Bool>
+    @State var timerStarts: Binding<Bool>
     
     var timer : Publishers.Autoconnect<Timer.TimerPublisher>
     
@@ -24,16 +24,12 @@ struct TimerView: View {
             // receiving timer
             .onReceive(timer) { _ in
                 // As long "timer" runs and "timeRemaining" is greater than 0
+                
                 if timeRemaining > 0 {
                     // subtract 1 from timeRemaining
                     timeRemaining -= 1
                 }
-                else if timeRemaining == 10 {
-                    timerSoundEffect.toggle()
-                }
-                else if timeRemaining == 5 {
-                    timerSoundEffect.toggle()
-                }
+                
                 
                     // when timeRemaining reaches 0
                 else if timeRemaining == 0 {
@@ -43,13 +39,20 @@ struct TimerView: View {
                         // stop timer
                         timer.upstream.connect().cancel()
                         // make introView invisible
-                        introViewVisible.wrappedValue.toggle()
+                        isVisible.wrappedValue.toggle()
                         
-                        breakTimerStarts.wrappedValue.toggle()
+                        timerStarts.wrappedValue.toggle()
                         
                     }
                 }
+                if timerSoundEffect{
+                    withAnimation{
+                        SoundEffect.playSoundEffect("bell_break.wav")
+                    }
+                    
+                }
             }
+        
         
     }
     func playSoundEffect(_ soundFileName: String) {
@@ -69,7 +72,7 @@ struct TimerView: View {
 }
 
 #Preview {
-    TimerView(timeRemaining: 5, introViewVisible: .constant(true), breakTimerStarts: .constant(false), timer: Timer.publish(every: 1, on: .main, in: .common).autoconnect())
+    TimerView(timeRemaining: 5, isVisible: .constant(true), timerStarts: .constant(false), timer: Timer.publish(every: 1, on: .main, in: .common).autoconnect())
 }
 
 

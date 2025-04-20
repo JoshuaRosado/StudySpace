@@ -4,26 +4,26 @@
 //
 //  Created by Joshua Rosado Olivencia on 4/2/25.
 //
-
+import Combine 
 import SwiftData
 import SwiftUI
-import Combine
+
 
 struct HomeView: View {
+    
+    // Tracking if StudyMode is active
     @State private var isStudyModeActive: Bool = false
-    @State private var timeRemaining = 1800 // 30 min study session
-    
-    @State private var breakTimeRemaining = 300
-    
-    var studyTimeOptions = [8,900,1800,2700,3600]
-    @State private var selectedStudyTime = 1800
-    var breakTimeOptions = [6,300,600,900]
-    @State private var selectedBreakTime = 300
-    
+    // Tracking if NotesView is displayed
     @State private var showNotesView: Bool = false
+    
+    @State private var timeRemaining = 1800 // 30 min study session
+    @State private var breakTimeRemaining = 300 // 5 min break time
+    
+    var studyTimeOptions = [8,900,1800,2700,3600] // study time selection
+    var breakTimeOptions = [6,300,600,900] // break time selection
+    // scale for transition between ON studyMode and OFF studyMode
     @State private var scale : CGFloat = 1
 
-    var shadowInt: CGFloat = 4
     
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     

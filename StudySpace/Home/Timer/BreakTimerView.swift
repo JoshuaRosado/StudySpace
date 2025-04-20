@@ -13,8 +13,8 @@ struct BreakTimerView: View {
     @State var audioPlayer: AVAudioPlayer!
     @State private var playBreakSound = false
     @State var breakTimeRemaining: Int
-    @State var introViewVisible: Binding<Bool>
-    @State var breakTimerStarts: Binding<Bool>
+    @State var isVisible: Binding<Bool>
+    @State var timerStarts: Binding<Bool>
     var timer : Publishers.Autoconnect<Timer.TimerPublisher>
     
     var body: some View {
@@ -28,7 +28,7 @@ struct BreakTimerView: View {
                     // subtract 1 from timeRemaining
                     breakTimeRemaining -= 1
                 }
-                else if breakTimeRemaining > 3 {
+                else if breakTimeRemaining == 3 {
                     playBreakSound = false
                 }
                 
@@ -43,13 +43,13 @@ struct BreakTimerView: View {
                         // stop timer
                         timer.upstream.connect().cancel()
                         // make introView invisible
-                        breakTimerStarts.wrappedValue.toggle()
-                        introViewVisible.wrappedValue.toggle()
+                        timerStarts.wrappedValue.toggle()
+                        isVisible.wrappedValue.toggle()
                     }
                 }
                 if playBreakSound{
                     withAnimation{
-                        SoundEffect.playSoundEffect("bell_break.wav")
+                        SoundEffect.playSoundEffect("studyTimer.wav")
                     }
                     
                 }
@@ -71,6 +71,6 @@ struct BreakTimerView: View {
 }
 
 #Preview {
-    BreakTimerView(breakTimeRemaining: 5,introViewVisible: .constant(true), breakTimerStarts: .constant(false), timer: Timer.publish(every: 1, on: .main, in: .common).autoconnect())
+    BreakTimerView(breakTimeRemaining: 5,isVisible: .constant(true), timerStarts: .constant(false), timer: Timer.publish(every: 1, on: .main, in: .common).autoconnect())
 }
 

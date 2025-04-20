@@ -11,17 +11,17 @@ import Combine
 struct MainTimerView: View {
     
     @State var timeRemaining: Int
-    @State var introViewVisible = true
+    @State var isVisible = true
     @State var breakTimeRemaining: Int
-    @State var breakTimerStarts = false
+    @State var timerStarts = false
     
     var timer : Publishers.Autoconnect<Timer.TimerPublisher>
     
     
     var body: some View {
-        if !breakTimerStarts {
+        if !timerStarts {
             VStack{
-                TimerView(timeRemaining: timeRemaining, introViewVisible: $introViewVisible, breakTimerStarts: $breakTimerStarts, timer: timer)
+                TimerView(timeRemaining: timeRemaining, isVisible: $isVisible, timerStarts: $timerStarts, timer: timer)
                     .font(.largeTitle)
                 
                 Text("Study Mode")
@@ -30,7 +30,7 @@ struct MainTimerView: View {
             }
         } else {
             VStack{
-                BreakTimerView(breakTimeRemaining: breakTimeRemaining, introViewVisible: $introViewVisible, breakTimerStarts: $breakTimerStarts, timer: timer)
+                BreakTimerView(breakTimeRemaining: breakTimeRemaining, isVisible: $isVisible, timerStarts: $timerStarts, timer: timer)
                     .font(.largeTitle)
 
                 Text("Break time")
@@ -48,5 +48,5 @@ struct MainTimerView: View {
 }
 
 #Preview {
-    MainTimerView(timeRemaining: 10, introViewVisible: true, breakTimeRemaining: 5, breakTimerStarts: false, timer: Timer.publish(every: 1, on: .main, in: .common).autoconnect())
+    MainTimerView(timeRemaining: 10, isVisible: true, breakTimeRemaining: 5, timerStarts: false, timer: Timer.publish(every: 1, on: .main, in: .common).autoconnect())
 }
