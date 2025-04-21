@@ -13,33 +13,33 @@ struct IntroView: View {
     @State private var onAppear = false
     var body: some View {
         ZStack{
-            // BG color
+            // Background Color----
             Color("lunarEclipse")
                 .ignoresSafeArea()
+            // Stack in front of Background----
             VStack(spacing: 10){
+                // Intro Message----
                 Text("Welcome to")
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .foregroundStyle(.auLait).opacity(0.8)
-                    
+                
                 Text("Study Space")
                     .font(.largeTitle)
                     .fontWeight(.black)
                     .fontDesign(.serif)
                     .foregroundStyle(.cremeBrulee).brightness(0.1)
                 HStack{
-                    // logo
+                    // Intro Message's Logo----
                     Image(systemName: "macbook")
                         .font(.largeTitle)
                     Image(systemName: "timer")
                         .font(.largeTitle)
                 }
-                .foregroundStyle(.auLait)
-                
-                
+                .foregroundStyle(.auLait) 
             }
         }
-        // Effects when view appears
+        // Animation effects when Intro View appears and disappears
         .scaleEffect(onAppear ? 1: 1.5)
         .opacity(onAppear ? 1.0: 0.0)
         .onAppear{
@@ -47,8 +47,6 @@ struct IntroView: View {
                 onAppear = true
             }
         }
-        
-        
     }
 }
 
