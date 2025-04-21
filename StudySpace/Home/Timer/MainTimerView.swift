@@ -14,6 +14,8 @@ struct MainTimerView: View {
     @State var isVisible = true
     @State var breakTimeRemaining: Int
     @State var timerStarts = false
+    let studyTime = "bell_break.wav"
+    let breakTime = "studyTimer.wav"
     
     var timer : Publishers.Autoconnect<Timer.TimerPublisher>
     
@@ -21,7 +23,7 @@ struct MainTimerView: View {
     var body: some View {
         if !timerStarts {
             VStack{
-                TimerView(timeRemaining: timeRemaining, isVisible: $isVisible, timerStarts: $timerStarts, timer: timer)
+                TimerView(timeRemaining: timeRemaining, isVisible: $isVisible, timerStarts: $timerStarts, soundEffectFileName: studyTime, timer: timer)
                     .font(.largeTitle)
                 
                 Text("Study Mode")
@@ -30,7 +32,7 @@ struct MainTimerView: View {
             }
         } else {
             VStack{
-                BreakTimerView(breakTimeRemaining: breakTimeRemaining, isVisible: $isVisible, timerStarts: $timerStarts, timer: timer)
+                TimerView(timeRemaining: breakTimeRemaining, isVisible: $isVisible, timerStarts: $timerStarts,soundEffectFileName: breakTime , timer: timer)
                     .font(.largeTitle)
 
                 Text("Break time")

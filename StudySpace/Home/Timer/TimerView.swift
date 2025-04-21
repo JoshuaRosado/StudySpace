@@ -15,6 +15,7 @@ struct TimerView: View {
     @State private var timerSoundEffect = false
     @State var isVisible: Binding<Bool>
     @State var timerStarts: Binding<Bool>
+    @State var soundEffectFileName: String
     
     var timer : Publishers.Autoconnect<Timer.TimerPublisher>
     
@@ -30,9 +31,15 @@ struct TimerView: View {
                     timeRemaining -= 1
                 }
                 
+                else if timeRemaining == 3 {
+                    timerSoundEffect = false
+                    
+                }
+                
                 
                     // when timeRemaining reaches 0
                 else if timeRemaining == 0 {
+                    timerSoundEffect = true
                     
                 
                     withAnimation{
@@ -47,7 +54,7 @@ struct TimerView: View {
                 }
                 if timerSoundEffect{
                     withAnimation{
-                        SoundEffect.playSoundEffect("bell_break.wav")
+                        SoundEffect.playSoundEffect(soundEffectFileName)
                     }
                     
                 }
@@ -72,7 +79,7 @@ struct TimerView: View {
 }
 
 #Preview {
-    TimerView(timeRemaining: 5, isVisible: .constant(true), timerStarts: .constant(false), timer: Timer.publish(every: 1, on: .main, in: .common).autoconnect())
+    TimerView(timeRemaining: 5, isVisible: .constant(true), timerStarts: .constant(false), soundEffectFileName: "bell_break.wav", timer: Timer.publish(every: 1, on: .main, in: .common).autoconnect())
 }
 
 
