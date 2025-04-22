@@ -28,12 +28,15 @@ struct BreakTimerView: View {
                     // subtract 1 from timeRemaining
                     breakTimeRemaining -= 1
                 }
+                // when timeRemaining gets to 3
+                // toggle Bool to false
                 else if breakTimeRemaining == 3 {
                     playBreakSound = false
                 }
                 
                 
                     // when timeRemaining reaches 0
+                // toggle Bool to true and it will trigger the sound effect method
                 else if breakTimeRemaining == 0 {
                     playBreakSound = true
                     
@@ -42,11 +45,13 @@ struct BreakTimerView: View {
                         
                         // stop timer
                         timer.upstream.connect().cancel()
-                        // make introView invisible
+                        
                         timerStarts.wrappedValue.toggle()
                         isVisible.wrappedValue.toggle()
                     }
                 }
+                // when bool is true
+                // play sound effect
                 if playBreakSound{
                     withAnimation{
                         SoundEffect.playSoundEffect("studyTimer.wav")
