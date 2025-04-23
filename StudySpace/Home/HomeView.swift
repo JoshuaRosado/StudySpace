@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct HomeView: View {
-    
+
     // Tracking if StudyMode is active
     @State private var isStudyModeActive: Bool = false
     

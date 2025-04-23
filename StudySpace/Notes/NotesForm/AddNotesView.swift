@@ -9,6 +9,7 @@ import SwiftUI
 import UIKit
 
 
+// extension for TextField Validation making sure no empty or empty space value is allowed to be submitted
 extension String {
     var isReallyEmpty : Bool {
         return self.trimmingCharacters(in: .whitespaces).isEmpty
@@ -17,10 +18,9 @@ extension String {
 
 struct AddNotesView: View {
     
-    init() {
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.cremeBrulee]}
+  
     
-    @Query(sort: \Note.date) var notes: [Note]
+    @Bindable var note: Note
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
     
@@ -41,34 +41,20 @@ struct AddNotesView: View {
         VStack{
             Form{
                 Section{
-                    TextField("Title", text:$title)
+                    TextField("Title", text:$note.title)
                         .fontWeight(.bold)
                         .padding(.vertical,4)
-                        
-                        
+       
      
                 }
                 
                 Section{
-                    TextEditor(text: $content)
+                    TextEditor(text: $note.content)
 
                         .frame(minHeight: 200)
 
                 }
-            
-                
-                
-            }
-            Button("", systemImage:"plus"){
-                // create new note
-                let newNotes = Note( title: title, content: content, date: date)
-                // added to the model array
-                modelContext.insert(newNotes)
-                // close view and return home
-                dismiss()
-                    
-                
-                
+  
             }
             .foregroundStyle(validatingInput ? .blue: .secondary)
             .buttonStyle(.plain)
@@ -86,5 +72,14 @@ struct AddNotesView: View {
 }
 
 #Preview {
-    AddNotesView()
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Note.self, configurations: config)
+        let note = Note(title: "Food List", content: "Eggs, Bacon, Bananas, Apples", date: .now)
+        return AddNotesView(note: note)
+            .modelContainer(container)
+    }
+    catch {
+        return Text("Failed to create container: \(error.localizedDescription)")
+    }
 }

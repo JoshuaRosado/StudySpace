@@ -13,15 +13,18 @@ struct NotesView: View {
     
     
     //     Customizing NavigationTitle's foregroundColor
-    init() {
-        
-        
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.cremeBrulee]
-    }
+//    init() {
+//        
+//        
+//        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.cremeBrulee]
+//    }
+    
     
     @Environment(\.dismiss) var dismiss
     // create our var for model
     @Environment(\.modelContext) var modelContext
+    
+    @State private var path = [Note]()
     
     // ==================================
     //return the data sorted by date
@@ -37,7 +40,7 @@ struct NotesView: View {
     @State private var openAddNotesView: Bool = false
     
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: $path){
             ZStack{
                 
                 // Bottom object----
@@ -81,6 +84,13 @@ struct NotesView: View {
                 
             }
             .navigationTitle("My Notes").fontDesign(.serif)
+            
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(for: Note.self){ note in
+                
+                AddNotesView(note: note)
+                
+            }
             .toolbar{
                 ToolbarItem(placement: .topBarLeading){
                     Button("",systemImage: "arrow.left"){
@@ -98,26 +108,26 @@ struct NotesView: View {
                     //  Button add notes "plus" button to redirect to the form of creating new notes and adding them to the list displayed
                     Button("Add Notes" ,systemImage: "plus"){
                         openAddNotesView.toggle()
+                        let note = Note(title: "", content: "", date: .now)
+                        if note.title == "" || note.content == ""{
+                            
+                        }
+                        modelContext.insert(note)
+                        path = [note]
                     }
                     .foregroundStyle(.cremeBrulee)
                 }
                 
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationDestination(for: Note.self){ note in
-                
-                NotesDetailView(note: note)
-                
-            }
             
             
             
             
             
             
-            .sheet(isPresented: $openAddNotesView){
-                AddNotesView()
-            }
+//            .sheet(isPresented: $openAddNotesView){
+//                AddNotesView(note: note)
+//            }
         }
     }
     func deleteItems(at offsets: IndexSet){

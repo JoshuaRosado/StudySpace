@@ -45,7 +45,7 @@ struct TimerView: View {
                     withAnimation{
                         // stop timer
                         timer.upstream.connect().cancel()
-                        // make introView invisible
+                        // make introView invisibl
                         isVisible.wrappedValue.toggle()
                         
                         timerStarts.wrappedValue.toggle()
