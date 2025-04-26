@@ -21,8 +21,8 @@ struct HomeView: View {
     
     @State private var breakTimeRemaining = 300 // Default 5 min break time
     
-    var studyTimeOptions = [8,900,1800,2700,3600] // Study time selection
-    var breakTimeOptions = [6,300,600,900] // Break time selection
+    var studyTimeOptions = [7,900,1800,2700,3600] // Study time selection
+    var breakTimeOptions = [5,300,600,900] // Break time selection
     
     
     // Timer to be passed in as parameter into MainView where StudyTimer and BreakTimer will be displayed
