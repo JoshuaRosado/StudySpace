@@ -54,12 +54,11 @@ struct AddNotesView: View {
                         .frame(minHeight: 200)
 
                 }
+                
   
             }
-            .foregroundStyle(validatingInput ? .blue: .secondary)
-            .buttonStyle(.plain)
             
-            .disabled(!validatingInput)
+
         }
         .fontDesign(.monospaced)
         .scrollContentBackground(.hidden)
@@ -68,6 +67,7 @@ struct AddNotesView: View {
         
         
     }
+    
     
 }
 

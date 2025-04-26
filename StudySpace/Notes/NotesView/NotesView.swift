@@ -8,7 +8,16 @@ import SwiftData
 import SwiftUI
 
 
+
+
+
 struct NotesView: View {
+        var validatingInput: Bool {
+            if title.isReallyEmpty || content.isReallyEmpty {
+                return false
+            }
+            return true
+        }
     
     
     
@@ -23,8 +32,10 @@ struct NotesView: View {
     @Environment(\.dismiss) var dismiss
     // create our var for model
     @Environment(\.modelContext) var modelContext
-    
+
     @State private var path = [Note]()
+    @State private var title: String = ""
+    @State private var content: String = ""
     
     // ==================================
     //return the data sorted by date
@@ -107,27 +118,26 @@ struct NotesView: View {
                 ToolbarItem(placement: .secondaryAction){
                     //  Button add notes "plus" button to redirect to the form of creating new notes and adding them to the list displayed
                     Button("Add Notes" ,systemImage: "plus"){
+                        
+                        
                         openAddNotesView.toggle()
+                        
+                        // Create new note
                         let note = Note(title: "", content: "", date: .now)
-                        if note.title == "" || note.content == ""{
-                            
-                        }
+                        // Add to our model
+                        guard validatingInput else {return}
                         modelContext.insert(note)
-                        path = [note]
+                        // Add to our path to display in list
+                        path.append(note)
+
+                        
                     }
                     .foregroundStyle(.cremeBrulee)
                 }
+               
                 
             }
             
-            
-            
-            
-            
-            
-//            .sheet(isPresented: $openAddNotesView){
-//                AddNotesView(note: note)
-//            }
         }
     }
     func deleteItems(at offsets: IndexSet){
@@ -138,6 +148,7 @@ struct NotesView: View {
             modelContext.delete(note)
         }
     }
+
 }
 
 
