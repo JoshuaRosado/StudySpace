@@ -19,7 +19,7 @@ extension String {
 struct AddNotesView: View {
     
   
-    
+    @State private var path = [Note]()
     @Bindable var note: Note
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
@@ -38,38 +38,54 @@ struct AddNotesView: View {
         return true
     }
     var body: some View {
-        VStack{
-            Form{
-                Section{
-                    TextField("Title", text:$note.title)
-                        .fontWeight(.bold)
-                        .padding(.vertical,4)
-       
-     
+
+            VStack{
+                Form{
+                    Section{
+                        TextField("Title", text:$note.title)
+                            .fontWeight(.bold)
+                            .padding(.vertical,4)
+                        
+                        
+                    }
+                    
+                    Section{
+                        TextEditor(text: $note.content)
+                        
+                            .frame(minHeight: 200)
+                        
+                    }
+                    
+                    
                 }
                 
-                Section{
-                    TextEditor(text: $note.content)
-
-                        .frame(minHeight: 200)
-
-                }
                 
-  
+            }
+            .fontDesign(.monospaced)
+            .scrollContentBackground(.hidden)
+            .background(.auLait.opacity(0.2))
+            
+//            .toolbar{
+//                Button("",systemImage: "plus"){
+//                    // Create new note
+//                    let note = Note(title: "", content: "", date: .now)
+//                    // Add to our model
+//                    guard validatingInput else {return}
+//                    modelContext.insert(note)
+//                    // Add to our path to display in list
+//                    path.append(note)
+//
+//                    
+//                }
+                }
             }
             
+            
+            
 
-        }
-        .fontDesign(.monospaced)
-        .scrollContentBackground(.hidden)
-        .background(.auLait.opacity(0.2))
-        
-        
-        
-    }
     
     
-}
+
 
 #Preview {
     do {
@@ -82,4 +98,4 @@ struct AddNotesView: View {
     catch {
         return Text("Failed to create container: \(error.localizedDescription)")
     }
-}
+}   

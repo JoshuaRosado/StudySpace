@@ -65,6 +65,7 @@ struct NotesView: View {
                         // Display it as following
                         ForEach(notes){ note in
                             NavigationLink(value: note){
+                                
                                 HStack{
                                     Text(note.title)
                                         .font(.headline)
@@ -125,7 +126,6 @@ struct NotesView: View {
                         // Create new note
                         let note = Note(title: "", content: "", date: .now)
                         // Add to our model
-                        guard validatingInput else {return}
                         modelContext.insert(note)
                         // Add to our path to display in list
                         path.append(note)

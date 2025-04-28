@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 @Model
-class Note {
+class Note: ObservableObject{
     var title: String
     var content: String
     var date : Date
