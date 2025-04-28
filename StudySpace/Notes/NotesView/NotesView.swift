@@ -70,6 +70,7 @@ struct NotesView: View {
                                     Text(note.title)
                                         .font(.headline)
                                         .fontWeight(.bold)
+                                   
                                     
                                     Spacer()
                                     Text(note.date, style: .date)
@@ -107,6 +108,7 @@ struct NotesView: View {
                 ToolbarItem(placement: .topBarLeading){
                     Button("",systemImage: "arrow.left"){
                         dismiss()
+                        
                         
                     }
                     

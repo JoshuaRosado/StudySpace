@@ -44,10 +44,11 @@ struct HomeView: View {
                 VStack{
                     
                     
-                    // When StudyMode is Active
+                    
                     
                     if isStudyModeActive{
-                        
+                        // When StudyMode is Active
+                        // Display:
                         
                         
                         // Bottom Stack ----
@@ -83,7 +84,9 @@ struct HomeView: View {
                         
                     } else {
                         
-                        // When Study Mode is NOT active, display StudyMode button only
+                        // When Study Mode is NOT active
+                        // DISPLAY:
+                        //StudyMode button only
                         
                         
                         Spacer()

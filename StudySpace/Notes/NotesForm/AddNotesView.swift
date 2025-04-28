@@ -65,18 +65,6 @@ struct AddNotesView: View {
             .scrollContentBackground(.hidden)
             .background(.auLait.opacity(0.2))
             
-//            .toolbar{
-//                Button("",systemImage: "plus"){
-//                    // Create new note
-//                    let note = Note(title: "", content: "", date: .now)
-//                    // Add to our model
-//                    guard validatingInput else {return}
-//                    modelContext.insert(note)
-//                    // Add to our path to display in list
-//                    path.append(note)
-//
-//                    
-//                }
                 }
             }
             
